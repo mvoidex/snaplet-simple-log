@@ -1,0 +1,23 @@
+Name:               snaplet-simple-log
+Version:            0.1
+Synopsis:           Simple log for Haskell in Snaplet
+License:            BSD3
+Author:             Alexandr `Voidex` Ruchkin
+Homepage:           http://github.com/mvoidex/snaplet-simple-log
+Maintainer:         voidex@live.com
+Category:           Logging
+Build-type:         Simple
+Cabal-version:      >= 1.6
+
+Library
+  HS-Source-Dirs: src
+  Build-Depends:
+    base >= 4.0,
+    simple-log >= 0.1 && < 0.2,
+    snap,
+    snap-core,
+    mtl,
+    data-lens-template,
+    transformers
+  Exposed-Modules:
+    Snap.Snaplet.SimpleLog
