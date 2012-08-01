@@ -4,7 +4,7 @@
 
 module Snap.Snaplet.SimpleLog (
   SimpleLog(..),
-  simpleLogInit,
+  simpleLogInit, simpleLogInit_,
   
   module System.Log
   ) where
@@ -24,6 +24,10 @@ simpleLogInit :: Politics -> Rules -> [IO Logger] -> SnapletInit b SimpleLog
 simpleLogInit p rs ls = makeSnaplet "log" "Simple log" Nothing $ do
   l <- liftIO $ newLog p rs ls
   return $ SimpleLog l
+
+simpleLogInit_ :: Log -> SnapletInit b SimpleLog
+simpleLogInit_ l = makeSnaplet "log" "Simple log" Nothing $ do
+    return $ SimpleLog l
 
 instance MonadLog (Handler b SimpleLog) where
   askLog = gets simpleLog
