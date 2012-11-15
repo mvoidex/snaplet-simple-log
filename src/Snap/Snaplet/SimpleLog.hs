@@ -20,7 +20,7 @@ import System.Log
 data SimpleLog = SimpleLog {
   simpleLog :: Log }
 
-simpleLogInit :: RulesLoad -> [IO Logger] -> SnapletInit b SimpleLog
+simpleLogInit :: RulesLoad -> [Logger] -> SnapletInit b SimpleLog
 simpleLogInit rs ls = makeSnaplet "log" "Simple log" Nothing $ do
   l <- liftIO $ newLog rs ls
   return $ SimpleLog l
